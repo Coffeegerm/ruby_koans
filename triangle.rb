@@ -14,6 +14,10 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  # permutations returns an array of all variations of the array
+  [a, b, c].permutation do |sides|
+    raise TriangleError unless sides[0] + sides[1] > sides[2]
+  end
   if (a == b && b == c)
     :equilateral
   elsif (a == b || b == c || a == c)
